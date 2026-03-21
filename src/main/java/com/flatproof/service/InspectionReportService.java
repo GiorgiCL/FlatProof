@@ -48,7 +48,8 @@ public class InspectionReportService {
                 LocalDateTime.now(),
                 null,
                 user,
-                request.getNotes()
+                request.getNotes(),
+                null
         );
 
         InspectionReport savedReport = inspectionReportRepository.save(report);

@@ -20,6 +20,9 @@ public class InspectionReport {
     @Column(nullable = false)
     private InspectionStatus status;
 
+    @Column(length = 64)
+    private String finalHash;
+
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
@@ -41,7 +44,7 @@ public class InspectionReport {
                             LocalDateTime createdAt,
                             LocalDateTime finalizedAt,
                             User createdBy,
-                            String notes) {
+                            String notes,String finalHash) {
         this.id = id;
         this.property = property;
         this.status = status;
@@ -49,19 +52,27 @@ public class InspectionReport {
         this.finalizedAt = finalizedAt;
         this.createdBy = createdBy;
         this.notes = notes;
+        this.finalHash = finalHash;
     }
     public InspectionReport(Property property,
                             InspectionStatus status,
                             LocalDateTime createdAt,
                             LocalDateTime finalizedAt,
                             User createdBy,
-                            String notes) {
+                            String notes,String finalHash) {
         this.property = property;
         this.status = status;
         this.createdAt = createdAt;
         this.finalizedAt = finalizedAt;
         this.createdBy = createdBy;
         this.notes = notes;
+        this.finalHash = finalHash;
+    }
+    public String getFinalHash() {
+        return finalHash;
+    }
+    public void setFinalHash(String finalHash) {
+        this.finalHash = finalHash;
     }
 
     public Long getId() {
