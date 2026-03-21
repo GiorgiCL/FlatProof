@@ -49,6 +49,8 @@ public class InspectionReportService {
                 null,
                 user,
                 request.getNotes(),
+                null,
+                null,
                 null
         );
 

@@ -35,6 +35,12 @@ public class InspectionReport {
     @Column(length = 2000)
     private String notes;
 
+    @Column(name = "blockchain_tx_hash")
+    private String blockchainTxHash;
+
+    @Column(name = "blockchain_record_id")
+    private String blockchainId;
+
     public InspectionReport() {
     }
 
@@ -44,7 +50,7 @@ public class InspectionReport {
                             LocalDateTime createdAt,
                             LocalDateTime finalizedAt,
                             User createdBy,
-                            String notes,String finalHash) {
+                            String notes,String finalHash,String blockchainTxHash,String blockchainId) {
         this.id = id;
         this.property = property;
         this.status = status;
@@ -53,13 +59,15 @@ public class InspectionReport {
         this.createdBy = createdBy;
         this.notes = notes;
         this.finalHash = finalHash;
+        this.blockchainTxHash = blockchainTxHash;
+        this.blockchainId = blockchainId;
     }
     public InspectionReport(Property property,
                             InspectionStatus status,
                             LocalDateTime createdAt,
                             LocalDateTime finalizedAt,
                             User createdBy,
-                            String notes,String finalHash) {
+                            String notes,String finalHash,String blockchainTxHash,String blockchainId) {
         this.property = property;
         this.status = status;
         this.createdAt = createdAt;
@@ -67,6 +75,20 @@ public class InspectionReport {
         this.createdBy = createdBy;
         this.notes = notes;
         this.finalHash = finalHash;
+        this.blockchainTxHash = blockchainTxHash;
+        this.blockchainId = blockchainId;
+    }
+    public String getBlockchainTxHash() {
+        return blockchainTxHash;
+    }
+    public void setBlockchainTxHash(String blockchainTxHash) {
+        this.blockchainTxHash = blockchainTxHash;
+    }
+    public String getBlockchainRecordId() {
+        return blockchainId;
+    }
+    public void setBlockchainRecordId(String blockchainId) {
+        this.blockchainId = blockchainId;
     }
     public String getFinalHash() {
         return finalHash;
